@@ -1,4 +1,7 @@
-function generateNumber() {
+const generateBtn = document.getElementById('#generate');
+const label = document.getElementById("numberRandom");
+
+generateBtn.addEventListener('click', () => {
     var number = Math.random();
-    document.getElementById("numberRandom").innerHTML = number;
-}
+    label.textContent = number;
+});
