@@ -19,7 +19,7 @@ generateBtn.addEventListener('click', () => {
         getRandomIntInclusive(0, 9));
     label.textContent = number;
     stateLbl.textContent = city;
-    nombreLbl.textContent = nombre() + ", " + apellido() + " " + apellido();
+    nombreLbl.textContent = fixCase(nombre()) + ", " + fixCase(apellido()) + " " + fixCase(apellido());
     const month = getRandomIntInclusive(1, 12);
     nacimientoLbl.textContent = getRandomIntInclusive(1, DAYS_PER_MONTH[month]) + "/" + month + "/" + getRandomIntInclusive(1927, 2005);
 });
@@ -126,3 +126,11 @@ const nombre = () => {
 const apellido = () => {
     return APELLIDOS_POPULARES[Math.floor(Math.random() * APELLIDOS_POPULARES.length)];
 };
+
+const fixCase = (str) => {
+    let strArr = str.split(" ");
+    strArr = strArr.map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+    return strArr.join(" ");
+}
