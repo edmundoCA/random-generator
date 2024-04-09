@@ -2,6 +2,7 @@ const generateBtn = document.getElementById('generate');
 const label = document.getElementById('numberRandom');
 const stateLbl = document.getElementById('state');
 const nombreLbl = document.getElementById('nombre');
+const nacimientoLbl = document.getElementById('nacimiento');
 
 generateBtn.addEventListener('click', () => {
     const city = procedencia();
@@ -19,6 +20,8 @@ generateBtn.addEventListener('click', () => {
     label.textContent = number;
     stateLbl.textContent = city;
     nombreLbl.textContent = nombre() + ", " + apellido() + " " + apellido();
+    const month = getRandomIntInclusive(1, 12);
+    nacimientoLbl.textContent = getRandomIntInclusive(1, DAYS_PER_MONTH[month]) + "/" + month + "/" + getRandomIntInclusive(1927, 2005);
 });
 
 function getRandomIntInclusive(min, max) {
@@ -110,41 +113,6 @@ const procedencia = () => {
             return "Aguascalientes";
         }
     }
-};
-
-const codigoCiudad = {
-    "Puebla": 2,
-    "Veracruz": 2,
-    "Tlaxcala": 2,
-    "Hidalgo": 2,
-    "Jalisco": 3,
-    "Colima": 3,
-    "Nayarit": 3,
-    "Zacatecas": 4,
-    "San Luis Potosí": 4,
-    "Aguascalientes": 4,
-    "Guanajuato": 4,
-    "Querétaro": 4,
-    "Michoacán": 4,
-    "Ciudad de México": 5,
-    "Estado de México": 5,
-    "Sinaloa": 6,
-    "Durango": 6,
-    "Chihuahua": 6,
-    "Sonora": 6,
-    "Baja California": 6,
-    "Baja California Sur": 6,
-    "Guerrero": 7,
-    "Morelos": 7,
-    "Coahuila": 8,
-    "Nuevo León": 8,
-    "Tamaulipas": 8,
-    "Oaxaca": 9,
-    "Chiapas": 9,
-    "Tabasco": 9,
-    "Campeche": 9,
-    "Yucatán": 9,
-    "Quintana Roo": 9
 };
 
 const nombre = () => {
