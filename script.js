@@ -1,6 +1,7 @@
 const generateBtn = document.getElementById('generate');
 const label = document.getElementById('numberRandom');
 const stateLbl = document.getElementById('state');
+const nombreLbl = document.getElementById('nombre');
 
 generateBtn.addEventListener('click', () => {
     const city = procedencia();
@@ -17,6 +18,7 @@ generateBtn.addEventListener('click', () => {
         getRandomIntInclusive(0, 9));
     label.textContent = number;
     stateLbl.textContent = city;
+    nombreLbl.textContent = nombre() + ", " + apellido() + " " + apellido();
 });
 
 function getRandomIntInclusive(min, max) {
@@ -143,4 +145,16 @@ const codigoCiudad = {
     "Campeche": 9,
     "Yucatán": 9,
     "Quintana Roo": 9
+};
+
+const nombre = () => {
+    if (Math.random() > 0.522) {
+        return NOMBRES_POPULARES_1[Math.floor(Math.random() * NOMBRES_POPULARES_1.length)];
+    } else {
+        return NOMBRES_POPULARES_0[Math.floor(Math.random() * NOMBRES_POPULARES_0.length)];
+    }
+};
+
+const apellido = () => {
+    return APELLIDOS_POPULARES[Math.floor(Math.random() * APELLIDOS_POPULARES.length)];
 };
